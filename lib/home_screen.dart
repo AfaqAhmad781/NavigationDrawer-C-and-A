@@ -21,20 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
-  child: TextButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 600),
-          pageBuilder: (context, animation, secondaryAnimation) => const Screen2(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(opacity: animation, child: child);
-          },
-        ),
-      );
-    },
-    child: const Text('Screen 1'),
+            child: TextButton(
+              onPressed: (){
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Screen2 ())
+                  );
+              },
+              child: Text('Screen 1')
               ),
           )
         ],
