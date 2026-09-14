@@ -4,6 +4,8 @@ import "package:flutter/material.dart";
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  static String id = 'home_screen' ;
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -15,6 +17,19 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.orange.shade800,
         title: Center(child: Text('Navigation Drawer')),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.orange.shade800,
+              ),
+              accountName: Text('Afaq Ahmad'), 
+              accountEmail: Text('afaqahmadasdf123@gmail.com'),
+            )
+          ],
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   vertical: 12,
                 ),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(5),
+                    topLeft: Radius.circular(5),
+                    topRight: Radius.circular(20)
+                  ),
                 ),
                 textStyle: TextStyle(
                   fontSize: 18,
@@ -38,9 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               onPressed: (){
-                Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Screen2 ())
-                  );
+                Navigator.pushNamed(context, Screen2.id);
               },
               child: Text('Screen 1')
               ),

@@ -1,4 +1,5 @@
 import 'package:chapter5_n_d_c_a/home_screen.dart';
+import 'package:chapter5_n_d_c_a/screen_2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomeScreen()
+      initialRoute: HomeScreen.id,
+      routes: {
+        HomeScreen.id : (context) => HomeScreen (),
+        Screen2.id :(context) => Screen2(),
+      }, 
     );
   }
 }
