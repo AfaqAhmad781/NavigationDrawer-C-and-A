@@ -19,15 +19,33 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Center(child: Text('Navigation Drawer')),
       ),
       drawer: Drawer(
+        backgroundColor: Colors.grey.shade400,
         child: ListView(
+          padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.orange.shade800,
               ),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage('https://images.pexels.com/photos/31704065/pexels-photo-31704065.jpeg'),
+              ),
               accountName: Text('Afaq Ahmad'), 
               accountEmail: Text('afaqahmadasdf123@gmail.com'),
-            )
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Page 2'),
+              subtitle: Text('click to page 2'),
+              onTap: (){
+                Navigator.pushNamed(context, Screen2.id);
+              } 
+            ),
+            ListTile(
+              leading: Icon(Icons.calendar_today),
+              title: Text('Calender'),
+              subtitle: Text('click to open Calender'),
+            ),
           ],
         ),
       ),
